@@ -133,5 +133,15 @@
         "source": "smart_contract_assistant",
         "content": "The ClickPointsContract now includes events for points added and total points updated. Would you like me to deploy this smart contract for you?",
         "metadata": {}
+    },
+    {
+        "id": "22959862-effc-40e5-82dc-e4c07c9c0e95",
+        "timestamp": "2024-11-26T10:34:56.184423Z",
+        "role": "user",
+        "source": "web_client",
+        "content": "yes, deploy it",
+        "metadata": {
+            "component_id": "Header1732616951"
+        }
     }
 ]
