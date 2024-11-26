@@ -9,12 +9,12 @@ const networks = [
   },
   {
     name: 'Holesky',
-    rpc: 'https://ethereum-holesky.publicnode.com',
+    rpc: 'https://ethereum-holesky-rpc.publicnode.com',
     chainId: 17000
   },
   {
     name: 'Sepolia',
-    rpc: 'https://eth-sepolia.public.blastapi.io',
+    rpc: 'https://eth-sepolia.public-rpc.blastapi.io',
     chainId: 11155111
   },
   {
