@@ -161,7 +161,4 @@ const ClickPointsGame: React.FC = () => {
 };
 
 export { ClickPointsGame as component };
-};
-
-export { ClickPointsGame as component };
 
