@@ -184,5 +184,15 @@
         "source": "smart_contract_assistant",
         "content": "The ClickPointsContract has been deployed and the frontend component has been generated. Is there anything else you would like to do?",
         "metadata": {}
+    },
+    {
+        "id": "d096f128-c7eb-499a-9ec3-248b586eb1a2",
+        "timestamp": "2024-11-26T10:37:30.650279Z",
+        "role": "user",
+        "source": "web_client",
+        "content": "I want you to generate a frontend that adds points when clicking and then when sbmit I can check the transaction. At the same time, I can see how many I am generating",
+        "metadata": {
+            "component_id": "Header1732616951"
+        }
     }
 ]
