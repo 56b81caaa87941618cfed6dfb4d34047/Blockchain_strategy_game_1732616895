@@ -1,5 +1,6 @@
 import React from 'react';
 import { ethers } from 'ethers';
+import React from 'react';
 
 
 const ClickPointsGame: React.FC = () => {
@@ -25,7 +26,7 @@ const ClickPointsGame: React.FC = () => {
 
   React.useEffect(() => {
     if (window.ethereum) {
-      const web3Provider = new ethers.providers.Web3Provider(window.ethereum);
+      const web3Provider = new ethers.providers.Web3Provider(window.ethereum as any);
       setProvider(web3Provider);
     }
   }, []);
