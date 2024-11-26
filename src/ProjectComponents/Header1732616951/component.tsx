@@ -1,15 +1,16 @@
-
-import React, { useState, useEffect } from 'react';
+import React from 'react';
 import { ethers } from 'ethers';
 
+
 const ClickPointsGame: React.FC = () => {
-  const [provider, setProvider] = useState<ethers.providers.Web3Provider | null>(null);
-  const [signer, setSigner] = useState<ethers.Signer | null>(null);
-  const [contract, setContract] = useState<ethers.Contract | null>(null);
-  const [sessionPoints, setSessionPoints] = useState(0);
-  const [userPoints, setUserPoints] = useState(0);
-  const [totalPoints, setTotalPoints] = useState(0);
-  const [isConnected, setIsConnected] = useState(false);
+  const [provider, setProvider] = React.useState<ethers.providers.Web3Provider | null>(null);
+  const [signer, setSigner] = React.useState<ethers.Signer | null>(null);
+  const [contract, setContract] = React.useState<ethers.Contract | null>(null);
+  const [sessionPoints, setSessionPoints] = React.useState(0);
+  const [userPoints, setUserPoints] = React.useState(0);
+  const [totalPoints, setTotalPoints] = React.useState(0);
+  const [isConnected, setIsConnected] = React.useState(false);
+
 
   const contractAddress = '0xD8C02cFb6356A813627AA0c1fcE7cD54dA545093';
   const chainId = 17000; // Holesky testnet
@@ -22,12 +23,13 @@ const ClickPointsGame: React.FC = () => {
     "event TotalPointsUpdated(uint256 newTotalPoints)"
   ];
 
-  useEffect(() => {
+  React.useEffect(() => {
     if (window.ethereum) {
       const web3Provider = new ethers.providers.Web3Provider(window.ethereum);
       setProvider(web3Provider);
     }
   }, []);
+
 
   const connectWallet = async () => {
     if (provider) {
