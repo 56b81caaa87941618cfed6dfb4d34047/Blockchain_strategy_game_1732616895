@@ -261,4 +261,4 @@ const MultiChainTokenChecker = () => {
   );
 };
 
-export { MultiChainTokenChecker as component };
+export default MultiChainTokenChecker;
