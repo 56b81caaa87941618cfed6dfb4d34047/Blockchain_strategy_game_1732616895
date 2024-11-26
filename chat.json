@@ -759,5 +759,13 @@
             },
             "type": "function"
         }
+    },
+    {
+        "id": "3b361be5-53e7-4630-a566-c476de62c3fd",
+        "timestamp": "2024-11-26T14:16:21.037189Z",
+        "role": "assistant",
+        "source": "tool:EditFrontendComponent",
+        "content": "Replacing export default MultiChainTokenChecker with export { MultiChainTokenChecker as component }...",
+        "metadata": {}
     }
 ]
