@@ -785,5 +785,15 @@
         "source": "base_assistant",
         "content": "The export statement for the `Hero1732626622` component has been updated to `export { MultiChainTokenChecker as component }`. Let me know if there's anything else you need!",
         "metadata": {}
+    },
+    {
+        "id": "ad7eee1e-ac25-45b4-a14a-c5f66b4d48c1",
+        "timestamp": "2024-11-26T14:37:43.179204Z",
+        "role": "user",
+        "source": "web_client",
+        "content": "Hero1732616898 add an image in the background (a bit blurry, has to be epic) of something that inspire you to crypto wars",
+        "metadata": {
+            "component_id": "Hero1732616898"
+        }
     }
 ]
