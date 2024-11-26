@@ -69,7 +69,7 @@ const MultiChainTokenChecker = () => {
 
     for (const network of networks) {
       try {
-        const provider = new Ethers.providers.JsonRpcProvider(network.rpc);
+        const provider = new ethers.providers.JsonRpcProvider(network.rpc);
         const tokenData = await checkNetworkTokens(provider, address, network.name);
         allTokens[network.name] = tokenData;
       } catch (err) {
@@ -105,7 +105,7 @@ const MultiChainTokenChecker = () => {
       for (const contractAddress of uniqueContracts) {
         try {
           // Try as ERC721
-          const nftContract = new Ethers.Contract(contractAddress, erc721ABI, provider);
+          const nftContract = new ethers.Contract(contractAddress, erc721ABI, provider);
           const balance = await nftContract.balanceOf(address);
           
           if (balance > 0) {
@@ -123,7 +123,7 @@ const MultiChainTokenChecker = () => {
           console.error(`Error checking NFT contract ${contractAddress}:`, nftError);
           try {
             // Try as ERC20
-            const tokenContract = new Ethers.Contract(contractAddress, erc20ABI, provider);
+            const tokenContract = new ethers.Contract(contractAddress, erc20ABI, provider);
             const balance = await tokenContract.balanceOf(address);
             
             if (balance > 0) {
@@ -133,7 +133,7 @@ const MultiChainTokenChecker = () => {
               
               result.erc20.push({
                 address: contractAddress,
-                balance: Ethers.utils.formatUnits(balance, decimals),
+                balance: ethers.utils.formatUnits(balance, decimals),
                 name,
                 symbol
               });
