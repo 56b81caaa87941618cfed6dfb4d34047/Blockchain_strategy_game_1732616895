@@ -563,5 +563,15 @@
         "source": "tool:EditFrontendComponent",
         "content": "Correcting network provider setup for Holesky network and adding additional error handling...",
         "metadata": {}
+    },
+    {
+        "id": "18cbca10-78c4-443c-a3fb-5db939802726",
+        "timestamp": "2024-11-26T13:23:07.167426Z",
+        "role": "tool_result",
+        "source": "EditFrontendComponent",
+        "content": "diff --git a/src/ProjectComponents/Hero1732626622/component.tsx b/src/ProjectComponents/Hero1732626622/component.tsx\nindex ba15ac3..936afe2 100644\n--- a/src/ProjectComponents/Hero1732626622/component.tsx\n+++ b/src/ProjectComponents/Hero1732626622/component.tsx\n@@ -119,7 +119,8 @@ const MultiChainTokenChecker = () => {\n               symbol\n             });\n           }\n-        } catch {\n+        } catch (nftError) {\n+          console.error(`Error checking NFT contract ${contractAddress}:`, nftError);\n           try {\n             // Try as ERC20\n             const tokenContract = new Ethers.Contract(contractAddress, erc20ABI, provider);\n@@ -137,7 +138,8 @@ const MultiChainTokenChecker = () => {\n                 symbol\n               });\n             }\n-          } catch {\n+          } catch (erc20Error) {\n+            console.error(`Error checking ERC20 contract ${contractAddress}:`, erc20Error);\n             // Not a token contract or unable to read\n             continue;\n           }\n@@ -145,6 +147,7 @@ const MultiChainTokenChecker = () => {\n       }\n     } catch (err) {\n       console.error(`Error scanning ${networkName}:`, err);\n+      throw new Error(`Failed to scan ${networkName}: ${err.message}`);\n     }\n \n     return result;\n",
+        "metadata": {
+            "tool_call_id": "call_R5V519jriYQmpuCxkXHA0pUy"
+        }
     }
 ]
