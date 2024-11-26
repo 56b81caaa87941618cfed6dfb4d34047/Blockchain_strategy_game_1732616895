@@ -235,5 +235,15 @@
         "source": "smart_contract_assistant",
         "content": "The frontend component for adding points on click, submitting the transaction, and displaying generated points has been generated. Would you like any additional modifications or assistance?",
         "metadata": {}
+    },
+    {
+        "id": "681083b9-3565-4a1b-bc14-01377573fc7a",
+        "timestamp": "2024-11-26T10:39:02.305649Z",
+        "role": "user",
+        "source": "web_client",
+        "content": "do not use import { useState, useEffect } from 'react'; use instead React.useState, and React.useEffect",
+        "metadata": {
+            "component_id": "Header1732616951"
+        }
     }
 ]
