@@ -154,53 +154,71 @@ const MultiChainTokenChecker = () => {
   };
 
   return (
-    <div className="p-6 max-w-4xl mx-auto">
-      <div className="bg-white rounded-xl shadow-md p-6">
-        <h1 className="text-2xl font-bold mb-6">Multi-Chain Token Checker</h1>
+    <div className="p-8 max-w-6xl mx-auto bg-gradient-to-br from-purple-100 to-indigo-100 rounded-xl shadow-lg">
+      <div className="bg-white rounded-xl shadow-md p-8">
+        <h1 className="text-3xl font-bold mb-6 text-indigo-800 flex items-center">
+          <i className='bx bx-link-alt mr-3 text-indigo-600'></i>
+          Multi-Chain Token Checker
+        </h1>
         
         {!isConnected ? (
           <button
             onClick={connectWallet}
-            className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded"
+            className="bg-indigo-600 hover:bg-indigo-700 text-white font-bold py-3 px-6 rounded-lg transition duration-300 ease-in-out transform hover:scale-105 flex items-center"
           >
+            <i className='bx bx-wallet-alt mr-2'></i>
             Connect Wallet
           </button>
         ) : (
-          <div className="mb-4">
-            <p className="text-gray-600">Connected: {walletAddress}</p>
+          <div className="mb-6 bg-indigo-100 p-4 rounded-lg">
+            <p className="text-indigo-800 font-semibold flex items-center">
+              <i className='bx bx-check-circle mr-2 text-green-500'></i>
+              Connected: {walletAddress}
+            </p>
           </div>
         )}
 
         {error && (
-          <div className="text-red-500 mt-4">
+          <div className="text-red-500 mt-4 bg-red-100 p-4 rounded-lg flex items-center">
+            <i className='bx bx-error-circle mr-2'></i>
             {error}
           </div>
         )}
 
         {loading ? (
-          <div className="mt-4 text-gray-600">
+          <div className="mt-6 text-indigo-600 flex items-center">
+            <i className='bx bx-loader-alt mr-2 animate-spin'></i>
             Scanning networks... This may take a few minutes.
           </div>
         ) : (
-          <div className="mt-6 space-y-6">
+          <div className="mt-8 space-y-8">
             {Object.entries(tokens).map(([network, data]) => (
-              <div key={network} className="border rounded-lg p-4">
-                <h2 className="text-xl font-semibold mb-4">{network}</h2>
+              <div key={network} className="border border-indigo-200 rounded-lg p-6 bg-white shadow-md">
+                <h2 className="text-2xl font-semibold mb-4 text-indigo-700 flex items-center">
+                  <i className='bx bx-network-chart mr-2'></i>
+                  {network}
+                </h2>
                 
                 {data.error ? (
-                  <p className="text-red-500">{data.error}</p>
+                  <p className="text-red-500 flex items-center">
+                    <i className='bx bx-error mr-2'></i>
+                    {data.error}
+                  </p>
                 ) : (
-                  <div className="space-y-4">
+                  <div className="space-y-6">
                     {data.nfts.length > 0 && (
                       <div>
-                        <h3 className="text-lg font-medium mb-2">NFTs</h3>
-                        <div className="space-y-2">
+                        <h3 className="text-xl font-medium mb-3 text-indigo-600 flex items-center">
+                          <i className='bx bx-image mr-2'></i>
+                          NFTs
+                        </h3>
+                        <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                           {data.nfts.map((nft, index) => (
-                            <div key={index} className="bg-gray-50 p-2 rounded">
-                              <p>Name: {nft.name}</p>
-                              <p>Symbol: {nft.symbol}</p>
-                              <p>Balance: {nft.balance}</p>
-                              <p className="text-sm text-gray-500">Contract: {nft.address}</p>
+                            <div key={index} className="bg-indigo-50 p-4 rounded-lg shadow-sm">
+                              <p className="font-semibold text-indigo-700">{nft.name}</p>
+                              <p className="text-indigo-600">Symbol: {nft.symbol}</p>
+                              <p className="text-indigo-600">Balance: {nft.balance}</p>
+                              <p className="text-sm text-indigo-400 mt-2 truncate">Contract: {nft.address}</p>
                             </div>
                           ))}
                         </div>
@@ -209,14 +227,17 @@ const MultiChainTokenChecker = () => {
                     
                     {data.erc20.length > 0 && (
                       <div>
-                        <h3 className="text-lg font-medium mb-2">ERC20 Tokens</h3>
-                        <div className="space-y-2">
+                        <h3 className="text-xl font-medium mb-3 text-indigo-600 flex items-center">
+                          <i className='bx bx-coin mr-2'></i>
+                          ERC20 Tokens
+                        </h3>
+                        <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                           {data.erc20.map((token, index) => (
-                            <div key={index} className="bg-gray-50 p-2 rounded">
-                              <p>Name: {token.name}</p>
-                              <p>Symbol: {token.symbol}</p>
-                              <p>Balance: {token.balance}</p>
-                              <p className="text-sm text-gray-500">Contract: {token.address}</p>
+                            <div key={index} className="bg-indigo-50 p-4 rounded-lg shadow-sm">
+                              <p className="font-semibold text-indigo-700">{token.name}</p>
+                              <p className="text-indigo-600">Symbol: {token.symbol}</p>
+                              <p className="text-indigo-600">Balance: {token.balance}</p>
+                              <p className="text-sm text-indigo-400 mt-2 truncate">Contract: {token.address}</p>
                             </div>
                           ))}
                         </div>
@@ -224,7 +245,10 @@ const MultiChainTokenChecker = () => {
                     )}
 
                     {data.nfts.length === 0 && data.erc20.length === 0 && (
-                      <p className="text-gray-500">No tokens found on this network</p>
+                      <p className="text-indigo-500 flex items-center">
+                        <i className='bx bx-info-circle mr-2'></i>
+                        No tokens found on this network
+                      </p>
                     )}
                   </div>
                 )}
@@ -235,6 +259,9 @@ const MultiChainTokenChecker = () => {
       </div>
     </div>
   );
+};
+
+export { MultiChainTokenChecker as component };
 };
 
 export { MultiChainTokenChecker as component };
