@@ -82,5 +82,15 @@
         "source": "smart_contract_assistant",
         "content": "The ClickPointsContract has been written to keep track of points based on user clicks. Would you like me to deploy this smart contract for you?",
         "metadata": {}
+    },
+    {
+        "id": "80684bef-6e6b-4928-8e90-d97d823dcf5b",
+        "timestamp": "2024-11-26T10:34:19.463243Z",
+        "role": "user",
+        "source": "web_client",
+        "content": "the evnets should be points added and points in totoal",
+        "metadata": {
+            "component_id": "Header1732616951"
+        }
     }
 ]
