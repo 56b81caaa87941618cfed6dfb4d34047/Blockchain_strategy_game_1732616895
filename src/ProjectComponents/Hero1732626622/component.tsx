@@ -1,5 +1,5 @@
 import React from 'react';
-import { ethers } from 'ethers';
+import * as Ethers from 'ethers';
 
 const networks = [
   {
@@ -105,7 +105,7 @@ const MultiChainTokenChecker = () => {
       for (const contractAddress of uniqueContracts) {
         try {
           // Try as ERC721
-          const nftContract = new ethers.Contract(contractAddress, erc721ABI, provider);
+          const nftContract = new Ethers.Contract(contractAddress, erc721ABI, provider);
           const balance = await nftContract.balanceOf(address);
           
           if (balance > 0) {
@@ -234,4 +234,4 @@ const MultiChainTokenChecker = () => {
   );
 };
 
-export default MultiChainTokenChecker;
+export { MultiChainTokenChecker as component };
