@@ -1,7 +1,30 @@
 import React from 'react';
 import { ethers } from 'ethers';
-import React from 'react';
 
+
+class ErrorBoundary extends React.Component<{ children: React.ReactNode }, { hasError: boolean, error: Error | null }> {
+  constructor(props: { children: React.ReactNode }) {
+    super(props);
+    this.state = { hasError: false, error: null };
+  }
+
+  static getDerivedStateFromError(error: Error) {
+    return { hasError: true, error };
+  }
+
+  render() {
+    if (this.state.hasError) {
+      return (
+        <div className="flex flex-col items-center justify-center min-h-screen bg-red-100">
+          <h1 className="text-2xl font-bold mb-4 text-red-600">Oops! Something went wrong.</h1>
+          <p className="text-red-500">{this.state.error?.message}</p>
+        </div>
+      );
+    }
+
+    return this.props.children;
+  }
+}
 
 const ClickPointsGame: React.FC = () => {
   const [provider, setProvider] = React.useState<ethers.providers.Web3Provider | null>(null);
@@ -99,25 +122,29 @@ const ClickPointsGame: React.FC = () => {
   };
 
   return (
-    <div className="flex flex-col items-center justify-center min-h-screen bg-gray-100">
-      <h1 className="text-4xl font-bold mb-8">CryptoWars Click Game</h1>
-      <div 
-        className="w-64 h-64 bg-blue-500 rounded-lg shadow-md flex items-center justify-center cursor-pointer text-white text-2xl font-bold"
-        onClick={handleClick}
-      >
-        Click Me!
+    <ErrorBoundary>
+      <div className="flex flex-col items-center justify-center min-h-screen bg-gray-100">
+        <h1 className="text-4xl font-bold mb-8">CryptoWars Click Game</h1>
+        <div 
+          className="w-64 h-64 bg-blue-500 rounded-lg shadow-md flex items-center justify-center cursor-pointer text-white text-2xl font-bold"
+          onClick={handleClick}
+        >
+          Click Me!
+        </div>
+        <p className="mt-4 text-xl">Session Points: {sessionPoints}</p>
+        <button 
+          className="mt-4 px-4 py-2 bg-green-500 text-white rounded-lg shadow-md hover:bg-green-600"
+          onClick={submitPoints}
+        >
+          Submit Points
+        </button>
+        <p className="mt-4">Your Total Points: {userPoints}</p>
+        <p>Contract Total Points: {totalPoints}</p>
       </div>
-      <p className="mt-4 text-xl">Session Points: {sessionPoints}</p>
-      <button 
-        className="mt-4 px-4 py-2 bg-green-500 text-white rounded-lg shadow-md hover:bg-green-600"
-        onClick={submitPoints}
-      >
-        Submit Points
-      </button>
-      <p className="mt-4">Your Total Points: {userPoints}</p>
-      <p>Contract Total Points: {totalPoints}</p>
-    </div>
+    </ErrorBoundary>
   );
 };
+
+export { ClickPointsGame as component };
 
 export { ClickPointsGame as component };
