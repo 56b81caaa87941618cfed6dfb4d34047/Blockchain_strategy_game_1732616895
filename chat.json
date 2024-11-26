@@ -530,5 +530,15 @@
         "source": "base_assistant",
         "content": "The code errors related to ethers usage have been fixed to ensure compatibility with version 5.0.0. Is there anything else you'd like to adjust or check in your project?",
         "metadata": {}
+    },
+    {
+        "id": "748aef0c-622f-43b2-9494-4c5a0cf971db",
+        "timestamp": "2024-11-26T13:22:40.262119Z",
+        "role": "user",
+        "source": "web_client",
+        "content": "the token counter is not working in Hero1732626622, I have ETHholesky tokens in holesky and does not say so",
+        "metadata": {
+            "component_id": "Hero1732626622"
+        }
     }
 ]
