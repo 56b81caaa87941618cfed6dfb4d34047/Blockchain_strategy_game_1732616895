@@ -261,6 +261,4 @@ const MultiChainTokenChecker = () => {
   );
 };
 
-};
-
 export { MultiChainTokenChecker as component };
