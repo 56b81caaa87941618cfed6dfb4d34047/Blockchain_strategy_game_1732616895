@@ -49,7 +49,7 @@ const ClickPointsGame: React.FC = () => {
 
   React.useEffect(() => {
     if (window.ethereum) {
-      const web3Provider = new Ethers.providers.Web3Provider(window.ethereum as any);
+      const web3Provider = new ethers.providers.Web3Provider(window.ethereum as any);
       setProvider(web3Provider);
     }
   }, []);
@@ -61,7 +61,7 @@ const ClickPointsGame: React.FC = () => {
         await provider.send("eth_requestAccounts", []);
         const signer = provider.getSigner();
         setSigner(signer);
-        const contract = new Ethers.Contract(contractAddress, contractABI, signer);
+        const contract = new ethers.Contract(contractAddress, contractABI, signer);
         setContract(contract);
         setIsConnected(true);
 
@@ -70,7 +70,7 @@ const ClickPointsGame: React.FC = () => {
           try {
             await window.ethereum.request({
               method: 'wallet_switchEthereumChain',
-              params: [{ chainId: Ethers.utils.hexValue(chainId) }],
+              params: [{ chainId: ethers.utils.hexValue(chainId) }],
             });
           } catch (switchError: any) {
             if (switchError.code === 4902) {
