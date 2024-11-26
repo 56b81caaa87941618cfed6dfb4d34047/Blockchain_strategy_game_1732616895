@@ -119,7 +119,8 @@ const MultiChainTokenChecker = () => {
               symbol
             });
           }
-        } catch {
+        } catch (nftError) {
+          console.error(`Error checking NFT contract ${contractAddress}:`, nftError);
           try {
             // Try as ERC20
             const tokenContract = new Ethers.Contract(contractAddress, erc20ABI, provider);
@@ -137,7 +138,8 @@ const MultiChainTokenChecker = () => {
                 symbol
               });
             }
-          } catch {
+          } catch (erc20Error) {
+            console.error(`Error checking ERC20 contract ${contractAddress}:`, erc20Error);
             // Not a token contract or unable to read
             continue;
           }
@@ -145,6 +147,7 @@ const MultiChainTokenChecker = () => {
       }
     } catch (err) {
       console.error(`Error scanning ${networkName}:`, err);
+      throw new Error(`Failed to scan ${networkName}: ${err.message}`);
     }
 
     return result;
