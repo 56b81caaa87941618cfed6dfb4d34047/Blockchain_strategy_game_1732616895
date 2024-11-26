@@ -6,5 +6,15 @@
         "source": "base_assistant",
         "content": "Welcome to your new project! I can help you edit it however you want. What would you like to do?",
         "metadata": {}
+    },
+    {
+        "id": "4400dd2a-a6ec-4e49-845a-99527f99832d",
+        "timestamp": "2024-11-26T10:33:08.835081Z",
+        "role": "user",
+        "source": "web_client",
+        "content": "I want to generate a game that allows the user to accumulate points based on the times clicked, so if i click 10 times, i get 10 points. For that, I need to send it as event to a smart contract and let the smart contract keep track of the points. Points have to be accumulative, so if i send 30 more later, in total there are 40.",
+        "metadata": {
+            "component_id": "Header1732616951"
+        }
     }
 ]
