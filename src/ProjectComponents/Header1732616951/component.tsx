@@ -123,26 +123,44 @@ const ClickPointsGame: React.FC = () => {
 
   return (
     <ErrorBoundary>
-      <div className="flex flex-col items-center justify-center min-h-screen bg-gray-100">
-        <h1 className="text-4xl font-bold mb-8">CryptoWars Click Game</h1>
-        <div 
-          className="w-64 h-64 bg-blue-500 rounded-lg shadow-md flex items-center justify-center cursor-pointer text-white text-2xl font-bold"
-          onClick={handleClick}
-        >
-          Click Me!
+      <div className="flex flex-col items-center justify-center min-h-screen bg-gradient-to-br from-blue-500 to-purple-600">
+        <h1 className="text-5xl font-bold mb-8 text-white shadow-lg">CryptoWars Click Game</h1>
+        <div className="bg-white rounded-lg shadow-lg p-8">
+          <div 
+            className="w-64 h-64 bg-gradient-to-r from-yellow-400 to-orange-500 rounded-full shadow-lg flex items-center justify-center cursor-pointer text-white text-3xl font-bold transform transition-transform duration-200 hover:scale-105"
+            onClick={handleClick}
+          >
+            <i className='bx bx-target-lock mr-2'></i>
+            Click Me!
+          </div>
+          <p className="mt-6 text-2xl font-semibold text-gray-800">Session Points: {sessionPoints}</p>
+          <button 
+            className="mt-6 px-6 py-3 bg-green-500 text-white rounded-lg shadow-md hover:bg-green-600 transition-colors duration-200 flex items-center justify-center w-full"
+            onClick={submitPoints}
+          >
+            <i className='bx bx-upload mr-2'></i>
+            Submit Points
+          </button>
+          <div className="mt-6 flex justify-between text-gray-700">
+            <p>Your Total Points: <span className="font-bold text-blue-600">{userPoints}</span></p>
+            <p>Contract Total: <span className="font-bold text-purple-600">{totalPoints}</span></p>
+          </div>
         </div>
-        <p className="mt-4 text-xl">Session Points: {sessionPoints}</p>
-        <button 
-          className="mt-4 px-4 py-2 bg-green-500 text-white rounded-lg shadow-md hover:bg-green-600"
-          onClick={submitPoints}
-        >
-          Submit Points
-        </button>
-        <p className="mt-4">Your Total Points: {userPoints}</p>
-        <p>Contract Total Points: {totalPoints}</p>
+        {!isConnected && (
+          <button 
+            className="mt-8 px-6 py-3 bg-blue-500 text-white rounded-lg shadow-md hover:bg-blue-600 transition-colors duration-200 flex items-center"
+            onClick={connectWallet}
+          >
+            <i className='bx bx-wallet mr-2'></i>
+            Connect Wallet
+          </button>
+        )}
       </div>
     </ErrorBoundary>
   );
+};
+
+export { ClickPointsGame as component };
 };
 
 export { ClickPointsGame as component };
