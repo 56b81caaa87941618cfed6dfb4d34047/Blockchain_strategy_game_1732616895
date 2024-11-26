@@ -27,9 +27,9 @@ class ErrorBoundary extends React.Component<{ children: React.ReactNode }, { has
 }
 
 const ClickPointsGame: React.FC = () => {
-  const [provider, setProvider] = React.useState<ethers.providers.Web3Provider | null>(null);
-  const [signer, setSigner] = React.useState<ethers.Signer | null>(null);
-  const [contract, setContract] = React.useState<ethers.Contract | null>(null);
+  const [provider, setProvider] = React.useState<Ethers.providers.Web3Provider | null>(null);
+  const [signer, setSigner] = React.useState<Ethers.Signer | null>(null);
+  const [contract, setContract] = React.useState<Ethers.Contract | null>(null);
   const [sessionPoints, setSessionPoints] = React.useState(0);
   const [userPoints, setUserPoints] = React.useState(0);
   const [totalPoints, setTotalPoints] = React.useState(0);
@@ -49,7 +49,7 @@ const ClickPointsGame: React.FC = () => {
 
   React.useEffect(() => {
     if (window.ethereum) {
-      const web3Provider = new ethers.providers.Web3Provider(window.ethereum as any);
+      const web3Provider = new Ethers.providers.Web3Provider(window.ethereum as any);
       setProvider(web3Provider);
     }
   }, []);
@@ -61,7 +61,7 @@ const ClickPointsGame: React.FC = () => {
         await provider.send("eth_requestAccounts", []);
         const signer = provider.getSigner();
         setSigner(signer);
-        const contract = new ethers.Contract(contractAddress, contractABI, signer);
+        const contract = new Ethers.Contract(contractAddress, contractABI, signer);
         setContract(contract);
         setIsConnected(true);
 
@@ -70,7 +70,7 @@ const ClickPointsGame: React.FC = () => {
           try {
             await window.ethereum.request({
               method: 'wallet_switchEthereumChain',
-              params: [{ chainId: ethers.utils.hexValue(chainId) }],
+              params: [{ chainId: Ethers.utils.hexValue(chainId) }],
             });
           } catch (switchError: any) {
             if (switchError.code === 4902) {
@@ -147,4 +147,3 @@ const ClickPointsGame: React.FC = () => {
 
 export { ClickPointsGame as component };
 
-export { ClickPointsGame as component };
