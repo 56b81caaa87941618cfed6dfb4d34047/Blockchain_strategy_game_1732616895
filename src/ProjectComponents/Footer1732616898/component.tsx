@@ -50,12 +50,14 @@ const contractABI = [
   }
 ];
 
-const Footer: React.FC = () => {
+const ClickPointsInteraction: React.FC = () => {
   const [isConnected, setIsConnected] = React.useState<boolean>(false);
+  const [userAddress, setUserAddress] = React.useState<string>('');
   const [userPoints, setUserPoints] = React.useState<string>('0');
   const [totalPoints, setTotalPoints] = React.useState<string>('0');
   const [pointsToAdd, setPointsToAdd] = React.useState<string>('');
-  const [userAddress, setUserAddress] = React.useState<string>('');
+  const [status, setStatus] = React.useState<string>('');
+  const [error, setError] = React.useState<string>('');
 
   const contractAddress = '0xD8C02cFb6356A813627AA0c1fcE7cD54dA545093';
   const holeskyChainId = '0x4268';
@@ -83,11 +85,13 @@ const Footer: React.FC = () => {
         setUserAddress(address);
         setIsConnected(true);
         await updatePoints(signer);
+        setError('');
       } catch (error) {
         console.error('Failed to connect wallet:', error);
+        setError('Failed to connect wallet. Please try again.');
       }
     } else {
-      console.log('Please install MetaMask!');
+      setError('Please install MetaMask!');
     }
   };
 
@@ -98,8 +102,10 @@ const Footer: React.FC = () => {
       const totalPointsBN = await contract.getTotalPoints();
       setUserPoints(ethers.utils.formatUnits(userPointsBN, 0));
       setTotalPoints(ethers.utils.formatUnits(totalPointsBN, 0));
+      setError('');
     } catch (error) {
       console.error('Error fetching points:', error);
+      setError('Failed to fetch points. Please try again.');
     }
   };
 
@@ -107,82 +113,82 @@ const Footer: React.FC = () => {
     if (!isConnected) {
       await connectWallet();
     }
+    if (!pointsToAdd || parseInt(pointsToAdd) <= 0) {
+      setError('Please enter a valid number of points to add.');
+      return;
+    }
     const provider = new ethers.providers.Web3Provider(window.ethereum);
     const signer = provider.getSigner();
     const contract = getContract(signer);
     
     try {
+      setStatus('Adding points...');
       const tx = await contract.addPoints(ethers.utils.parseUnits(pointsToAdd, 0));
+      setStatus('Transaction submitted. Waiting for confirmation...');
       await tx.wait();
+      setStatus('Points added successfully!');
       await updatePoints(signer);
       setPointsToAdd('');
+      setError('');
     } catch (error) {
       console.error('Error adding points:', error);
+      setError('Failed to add points. Please try again.');
+    } finally {
+      setTimeout(() => setStatus(''), 5000);
     }
   };
 
   return (
-    <footer className="bg-gray-800 text-white p-8 w-full h-full">
-      <div className="container mx-auto h-full">
-        <div className="flex flex-wrap justify-between h-full">
-          
-          <div className="w-full md:w-1/3 mb-6 md:mb-0">
-            <h3 className="text-xl font-bold mb-2">CryptoWars</h3>
-            <p className="text-gray-400">© 2023 CryptoWars. All rights reserved. Play responsibly.</p>
-          </div>
-
-          <div className="w-full md:w-1/3 mb-6 md:mb-0">
-            <h4 className="text-lg font-semibold mb-2">Follow Us</h4>
-            <div className="flex space-x-4">
-              <a href="#" className="text-gray-400 hover:text-white">
-                <i className='bx bxl-facebook text-xl'></i>
-              </a>
-              <a href="#" className="text-gray-400 hover:text-white">
-                <i className='bx bxl-twitter text-xl'></i>
-              </a>
-              <a href="#" className="text-gray-400 hover:text-white">
-                <i className='bx bxl-instagram text-xl'></i>
-              </a>
+    <div className="bg-gray-100 min-h-screen p-5">
+      <div className="max-w-md mx-auto bg-white rounded-lg shadow-md p-5">
+        <h2 className="text-2xl font-bold mb-5 text-center">Click Points Interaction</h2>
+        
+        {!isConnected ? (
+          <button
+            onClick={connectWallet}
+            className="w-full bg-blue-500 hover:bg-blue-600 text-white font-bold py-2 px-4 rounded-lg shadow-md"
+          >
+            Connect Wallet
+          </button>
+        ) : (
+          <div>
+            <p className="mb-2">
+              <span className="font-semibold">Address:</span> {userAddress.slice(0, 6)}...{userAddress.slice(-4)}
+            </p>
+            <p className="mb-2">
+              <span className="font-semibold">Your Points:</span> {userPoints}
+            </p>
+            <p className="mb-4">
+              <span className="font-semibold">Total Points:</span> {totalPoints}
+            </p>
+            <div className="flex mb-4">
+              <input
+                type="number"
+                value={pointsToAdd}
+                onChange={(e) => setPointsToAdd(e.target.value)}
+                placeholder="Points to add"
+                className="flex-grow mr-2 p-2 border border-gray-300 rounded-lg"
+              />
+              <button
+                onClick={addPoints}
+                className="bg-green-500 hover:bg-green-600 text-white font-bold py-2 px-4 rounded-lg shadow-md"
+              >
+                Add Points
+              </button>
             </div>
           </div>
-
-          <div className="w-full md:w-1/3 mb-6 md:mb-0">
-            <h4 className="text-lg font-semibold mb-2">Click Points</h4>
-            {!isConnected ? (
-              <button
-                onClick={connectWallet}
-                className="bg-blue-500 hover:bg-blue-600 text-white font-bold py-2 px-4 rounded-lg shadow-md flex items-center"
-              >
-                <i className='bx bx-wallet mr-2'></i>
-                Connect Wallet
-              </button>
-            ) : (
-              <div className="bg-gray-700 p-4 rounded-lg shadow-md">
-                <p className="mb-2">Address: {userAddress.slice(0, 6)}...{userAddress.slice(-4)}</p>
-                <p className="mb-2">Your Points: {userPoints}</p>
-                <p className="mb-2">Total Points: {totalPoints}</p>
-                <div className="flex mt-4">
-                  <input
-                    type="number"
-                    value={pointsToAdd}
-                    onChange={(e) => setPointsToAdd(e.target.value)}
-                    placeholder="Points to add"
-                    className="mr-2 p-2 rounded-lg text-black"
-                  />
-                  <button
-                    onClick={addPoints}
-                    className="bg-green-500 hover:bg-green-600 text-white font-bold py-2 px-4 rounded-lg shadow-md"
-                  >
-                    Add Points
-                  </button>
-                </div>
-              </div>
-            )}
-          </div>
-        </div>
+        )}
+        
+        {status && (
+          <p className="mt-4 text-sm text-blue-600">{status}</p>
+        )}
+        
+        {error && (
+          <p className="mt-4 text-sm text-red-600">{error}</p>
+        )}
       </div>
-    </footer>
+    </div>
   );
 };
 
-export { Footer as component };
+export { ClickPointsInteraction as component };
