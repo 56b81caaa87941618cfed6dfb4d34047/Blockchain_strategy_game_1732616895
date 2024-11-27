@@ -7,9 +7,6 @@ const LatestEventDisplay: React.FC = () => {
   const [error, setError] = React.useState<string | null>(null);
   const [isLoading, setIsLoading] = React.useState<boolean>(false);
 
-  const [latestEvent, setLatestEvent] = React.useState<string | null>(null);
-  const [error, setError] = React.useState<string | null>(null);
-
   const contractAddress = '0xD8C02cFb6356A813627AA0c1fcE7cD54dA545093';
   const chainId = 17000; // Holesky testnet
 
