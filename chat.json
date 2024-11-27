@@ -167,5 +167,15 @@
         "source": "base_assistant",
         "content": "It seems that the content request was rejected due to violating our content policy. Could you provide a different description for the new image?",
         "metadata": {}
+    },
+    {
+        "id": "27682182-de60-43fa-a335-926b000fa532",
+        "timestamp": "2024-11-27T11:19:52.640050Z",
+        "role": "user",
+        "source": "web_client",
+        "content": "ok but at least in the footer get rid of the wallet connection",
+        "metadata": {
+            "component_id": "Footer1732616898"
+        }
     }
 ]
