@@ -187,6 +187,56 @@ const ClickPointsInteraction: React.FC = () => {
           <p className="mt-4 text-sm text-red-600">{error}</p>
         )}
       </div>
+      <div className="mt-8 p-5 bg-cover bg-center" style={{backgroundImage: 'url(https://raw.githubusercontent.com/56b81caaa87941618cfed6dfb4d34047/Blockchain_strategy_game_1732616895/main/src/assets/images/624ba417990748d0a5108405509cdd7c.jpeg)'}}>
+        {/* Footer content goes here */}
+      </div>
+      <div className="max-w-md mx-auto bg-white rounded-lg shadow-md p-5">
+        <h2 className="text-2xl font-bold mb-5 text-center">Click Points Interaction</h2>
+        
+        {!isConnected ? (
+          <button
+            onClick={connectWallet}
+            className="w-full bg-blue-500 hover:bg-blue-600 text-white font-bold py-2 px-4 rounded-lg shadow-md"
+          >
+            Connect Wallet
+          </button>
+        ) : (
+          <div>
+            <p className="mb-2">
+              <span className="font-semibold">Address:</span> {userAddress.slice(0, 6)}...{userAddress.slice(-4)}
+            </p>
+            <p className="mb-2">
+              <span className="font-semibold">Your Points:</span> {userPoints}
+            </p>
+            <p className="mb-4">
+              <span className="font-semibold">Total Points:</span> {totalPoints}
+            </p>
+            <div className="flex mb-4">
+              <input
+                type="number"
+                value={pointsToAdd}
+                onChange={(e) => setPointsToAdd(e.target.value)}
+                placeholder="Points to add"
+                className="flex-grow mr-2 p-2 border border-gray-300 rounded-lg"
+              />
+              <button
+                onClick={addPoints}
+                className="bg-green-500 hover:bg-green-600 text-white font-bold py-2 px-4 rounded-lg shadow-md"
+              >
+                Add Points
+              </button>
+            </div>
+          </div>
+        )}
+        
+        {status && (
+          <p className="mt-4 text-sm text-blue-600">{status}</p>
+        )}
+        
+        {error && (
+          <p className="mt-4 text-sm text-red-600">{error}</p>
+        )}
+      </div>
     </div>
   );
 };
