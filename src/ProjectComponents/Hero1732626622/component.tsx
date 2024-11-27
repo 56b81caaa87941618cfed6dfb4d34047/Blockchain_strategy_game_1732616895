@@ -4,7 +4,7 @@ import * as Ethers from 'ethers';
 const networks = [
   {
     name: 'Ethereum',
-    rpc: 'https://eth.public-rpc.com',
+    rpc: 'https://ethereum-rpc.publicnode.com',
     chainId: 1
   },
   {
@@ -14,12 +14,12 @@ const networks = [
   },
   {
     name: 'Sepolia',
-    rpc: 'https://eth-sepolia.public-rpc.blastapi.io',
+    rpc: 'https://ethereum-sepolia-rpc.publicnode.com',
     chainId: 11155111
   },
   {
     name: 'Polygon',
-    rpc: 'https://polygon-rpc.com',
+    rpc: 'https://polygon-bor-rpc.publicnode.com',
     chainId: 137
   }
 ];
