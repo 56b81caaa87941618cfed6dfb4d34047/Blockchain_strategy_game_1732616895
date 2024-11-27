@@ -1,5 +1,5 @@
 import React from 'react';
-import ethers from 'ethers';
+import { ethers } from 'ethers';
 
 const Footer: React.FC = () => {
   const [ethBalance, setEthBalance] = React.useState<string | null>(null);
