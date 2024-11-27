@@ -103,5 +103,13 @@
         "metadata": {
             "component_id": "Footer1732616898"
         }
+    },
+    {
+        "id": "99daf1ca-d293-477b-be57-5f04f8818c0b",
+        "timestamp": "2024-11-27T09:57:44.025562Z",
+        "role": "assistant",
+        "source": "base_assistant",
+        "content": "Holesky testnet is only supported for smart contracts developed within the mini-app. Please use another network such as Ethereum, Polygon, or zkSyncEra for this contract. Which one would you prefer?",
+        "metadata": {}
     }
 ]
