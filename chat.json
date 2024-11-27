@@ -6,5 +6,15 @@
         "source": "base_assistant",
         "content": "Welcome to your new project! I can help you edit it however you want. What would you like to do?",
         "metadata": {}
+    },
+    {
+        "id": "34b6a252-9daf-493c-b6fd-a840b86544df",
+        "timestamp": "2024-11-27T09:56:56.196753Z",
+        "role": "user",
+        "source": "web_client",
+        "content": "generate in the footer a frontend for the sc 0xD8C02cFb6356A813627AA0c1fcE7cD54dA545094",
+        "metadata": {
+            "component_id": "Footer1732616898"
+        }
     }
 ]
