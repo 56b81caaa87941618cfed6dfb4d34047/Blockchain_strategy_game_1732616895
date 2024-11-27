@@ -11,7 +11,7 @@ const Footer: React.FC = () => {
         const provider = new ethers.providers.Web3Provider(window.ethereum);
         await window.ethereum.request({
           method: 'wallet_switchEthereumChain',
-          params: [{ chainId: '0x4e454152' }], // Holesky network chainId
+          params: [{ chainId: 17000 }], // Holesky network chainId
         });
         const signer = provider.getSigner();
         const address = await signer.getAddress();
