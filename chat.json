@@ -149,5 +149,15 @@
         "source": "tool:GenerateImageAndPlaceInComponent",
         "content": "Generating and replacing the background with an extremely bloody image...",
         "metadata": {}
+    },
+    {
+        "id": "f8748924-1558-45f0-8863-28c4f6b30856",
+        "timestamp": "2024-11-27T10:56:55.912119Z",
+        "role": "tool_result",
+        "source": "GenerateImageAndPlaceInComponent",
+        "content": "Error: The image generation prompt was rejected due to content policy violation. Please modify the prompt to avoid violent, adult, or other prohibited content.",
+        "metadata": {
+            "tool_call_id": "call_AAKsukqtMcWUniLdkSS6ehF2"
+        }
     }
 ]
