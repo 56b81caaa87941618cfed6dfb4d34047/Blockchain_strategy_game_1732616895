@@ -6,38 +6,5 @@
         "source": "base_assistant",
         "content": "Welcome to your new project! I can help you edit it however you want. What would you like to do?",
         "metadata": {}
-    },
-    {
-        "id": "c10acb24-949a-4b24-8859-dee0284defb0",
-        "timestamp": "2024-11-27T11:24:39.058852Z",
-        "role": "user",
-        "source": "web_client",
-        "content": "for the 0xD8C02cFb6356A813627AA0c1fcE7cD54dA545093 in holesky, do a fonrtend",
-        "metadata": {
-            "component_id": "Footer1732616898"
-        }
-    },
-    {
-        "id": "c1bf9ab5-c881-498d-a76d-9d14702aa421",
-        "timestamp": "2024-11-27T11:24:44.588242Z",
-        "role": "tool_call",
-        "source": "base_assistant",
-        "content": null,
-        "metadata": {
-            "id": "call_3aqJN4lFQ7I6NiK7GUznsJw5",
-            "function": {
-                "arguments": "{\"component_id\":\"Footer1732616898\",\"sc_address\":\"0xD8C02cFb6356A813627AA0c1fcE7cD54dA545093\",\"chain_id\":\"HOLESKY\",\"change_description\":\"add interaction with smart contract\",\"acknowledgement_message\":\"Okay, I'm editing the component to interact with the smart contract at 0xD8C02cFb6356A813627AA0c1fcE7cD54dA545093\"}",
-                "name": "EditSmartContractFrontendComponent"
-            },
-            "type": "function"
-        }
-    },
-    {
-        "id": "96b1c384-a138-4a2a-8e20-a7d23dc03c3d",
-        "timestamp": "2024-11-27T11:24:45.687353Z",
-        "role": "assistant",
-        "source": "tool:edit_smart_contract_frontend_component",
-        "content": "Okay, I'm editing the component to interact with the smart contract at 0xD8C02cFb6356A813627AA0c1fcE7cD54dA545093",
-        "metadata": {}
     }
 ]
