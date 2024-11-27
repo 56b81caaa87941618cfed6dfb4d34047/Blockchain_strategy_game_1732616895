@@ -57,5 +57,15 @@
         "source": "base_assistant",
         "content": "The background image has been added to the footer. Is there anything else you would like to modify?",
         "metadata": {}
+    },
+    {
+        "id": "c292f616-eacb-47c9-846f-535784de7826",
+        "timestamp": "2024-11-27T10:38:34.317054Z",
+        "role": "user",
+        "source": "web_client",
+        "content": "no, better generate a new one of crypto wars and place that one on the brackground",
+        "metadata": {
+            "component_id": "Footer1732616898"
+        }
     }
 ]
