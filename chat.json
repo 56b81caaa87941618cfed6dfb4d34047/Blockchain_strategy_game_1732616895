@@ -6,36 +6,5 @@
         "source": "base_assistant",
         "content": "Welcome to your new project! I can help you edit it however you want. What would you like to do?",
         "metadata": {}
-    },
-    {
-        "id": "0fe899cb-dd66-4418-83cf-a538888305ab",
-        "timestamp": "2024-11-27T11:26:55.661735Z",
-        "role": "user",
-        "source": "web_client",
-        "content": "do a forntend interface for the sc addres 0x5C69bEe701ef814a2B6a3EDD4B1652CB9cc5aA6f in ehtereum mainnet",
-        "metadata": {}
-    },
-    {
-        "id": "5a1d42ee-5ffc-4ff5-be88-d5122407ea6b",
-        "timestamp": "2024-11-27T11:27:00.163494Z",
-        "role": "tool_call",
-        "source": "base_assistant",
-        "content": null,
-        "metadata": {
-            "id": "call_G0rj1XKzHmi7D53DO8PqprQi",
-            "function": {
-                "arguments": "{\"component_id\":\"Hero1732626622\",\"sc_address\":\"0x5C69bEe701ef814a2B6a3EDD4B1652CB9cc5aA6f\",\"chain_id\":\"ETHEREUM\",\"change_description\":\"Modify the frontend interface to interact with the smart contract at the given address.\",\"acknowledgement_message\":\"Okay, I'm updating the component to interact with the smart contract on the Ethereum mainnet.\"}",
-                "name": "EditSmartContractFrontendComponent"
-            },
-            "type": "function"
-        }
-    },
-    {
-        "id": "5ada6c62-35da-4a51-a238-33eb86b92c6d",
-        "timestamp": "2024-11-27T11:27:01.749553Z",
-        "role": "assistant",
-        "source": "tool:edit_smart_contract_frontend_component",
-        "content": "Okay, I'm updating the component to interact with the smart contract on the Ethereum mainnet.",
-        "metadata": {}
     }
 ]
