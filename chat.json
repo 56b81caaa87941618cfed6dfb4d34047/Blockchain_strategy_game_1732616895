@@ -49,5 +49,13 @@
         "metadata": {
             "tool_call_id": "call_YhFMs5tbGybhvRJeb4DSx5OQ"
         }
+    },
+    {
+        "id": "76228a1f-f295-419d-ba1f-9ad683fa3dfa",
+        "timestamp": "2024-11-27T10:55:38.427585Z",
+        "role": "user",
+        "source": "web_client",
+        "content": "use better c721e239b1c349c5a91cd392a2b9cc59.jpeg in the background",
+        "metadata": {}
     }
 ]
