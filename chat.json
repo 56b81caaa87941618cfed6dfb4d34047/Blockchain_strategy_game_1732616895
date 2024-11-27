@@ -57,5 +57,15 @@
         "source": "tool:edit_smart_contract_frontend_component",
         "content": "Okay, I'm generating the frontend for the smart contract interaction in the footer component...",
         "metadata": {}
+    },
+    {
+        "id": "ed433725-5802-49d8-a3d4-702531822951",
+        "timestamp": "2024-11-27T09:57:23.387789Z",
+        "role": "tool_result",
+        "source": "EditSmartContractFrontendComponent",
+        "content": "Error: Holesky testnet is only supported for smart contracts developed within the mini-app. Please use a different network for external contracts.",
+        "metadata": {
+            "tool_call_id": "call_2MzhR1BBPRbQsBAquxLrDimk"
+        }
     }
 ]
