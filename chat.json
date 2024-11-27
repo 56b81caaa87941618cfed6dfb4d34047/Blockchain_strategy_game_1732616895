@@ -1083,5 +1083,15 @@
         "source": "base_assistant",
         "content": "The `Header1732616898` component now includes functionality to check and display the latest event from the specified smart contract on the Holesky network. If there are any further adjustments needed, feel free to let me know!",
         "metadata": {}
+    },
+    {
+        "id": "782a0223-1cc9-4608-afbb-b2eb5e8b9295",
+        "timestamp": "2024-11-27T09:08:05.404400Z",
+        "role": "user",
+        "source": "web_client",
+        "content": "it has to auto refresh every 15 seconds and it should look fro 10000 blocks",
+        "metadata": {
+            "component_id": "Header1732616898"
+        }
     }
 ]
