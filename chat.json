@@ -85,5 +85,13 @@
         "metadata": {
             "component_id": "Footer1732616898"
         }
+    },
+    {
+        "id": "8f8693c5-dacd-4947-8725-a37e331202a3",
+        "timestamp": "2024-11-27T09:57:38.996355Z",
+        "role": "assistant",
+        "source": "base_assistant",
+        "content": "Which blockchain is the smart contract deployed on? The supported chains are ETHEREUM, HOLESKY, POLYGON, and ZKSYNCERA.",
+        "metadata": {}
     }
 ]
