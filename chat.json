@@ -6,5 +6,13 @@
         "source": "base_assistant",
         "content": "Welcome to your new project! I can help you edit it however you want. What would you like to do?",
         "metadata": {}
+    },
+    {
+        "id": "d9e29a9c-8158-4a64-9cbb-9cf2e687292e",
+        "timestamp": "2024-11-27T11:28:08.270200Z",
+        "role": "user",
+        "source": "web_client",
+        "content": "do a forntend interface for the sc addres 0x5C69bEe701ef814a2B6a3EDD4B1652CB9cc5aA6f in ehtereum mainnet",
+        "metadata": {}
     }
 ]
